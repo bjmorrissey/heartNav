@@ -39,8 +39,11 @@ nav {
     left: 0;
     width: 100vw;
     border-radius: 0;
-    animation: none;
-    border: 1px solid black;
+    animation: 4s pulse 4s ease-in-out infinite; 
+    
+    /* background-image: none; */
+    /* animation: none; */
+    /* border: 1px solid black; */
 }
 
 
