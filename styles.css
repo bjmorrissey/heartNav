@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: red;
+    color: #ffffff;
+    
+}
+
+:root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+
+
+nav {
+    display: absolute;
+    top: -100px; 
+    left: -100px; 
+    background-image: url('images/heart.png');
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: fixed;
+    animation: 2s pulse 2s ease-in-out infinite; 
+    display: flex;
+    align-items: center; 
+    /* border: 2px solid black; */
+    transition: all .5s;
+}
+
+.openNav {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    border-radius: 0;
+    animation: none;
+    border: 1px solid black;
+}
+
+
+/* nav:hover {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    border-radius: 0;
+    animation: none;
+    border: 1px solid black;
+}
+ */
+
+nav ul {
+    visibility: hidden;
+    display: flex;
+    width: 100%; 
+    justify-content: space-around ;
+    list-style: none;
+    align-items: center;
+    border: 2px solid blue;
+    /* transition: visibility 2s ease; */
+}
+
+nav:hover ul {
+    /* visibility: visible; */
+    /* position: relative; */
+    /* top: -70px; */
+} 
+
+
+
+
+nav ul li {
+    top: -40px;
+    padding: 20px;
+    font-size: 30px;
+
+}
+
+.deadspace {
+    height: 100px;
+    width: 20px;
+    border: 10px solid black;
+} 
+
+.whitespace {
+    height: 100px; 
+    width: 20px;
+    border: 10px solid white;
+}
+
+.float {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    animation: pulse 2s ease-in;
+
+}
+
+
+@keyframes pulse {
+    0%   {transform:scale(1)}
+    44%   {transform:scale(1)}
+    45%   {transform:scale(1.2)}
+    /* 45%  {background-color: #fff; left:0px; top:0px;} */
+    50%  {transform:scale(1)}
+    /* 75%  {background-color:#fff; left:-50px; top:10px;} */
+    
+    65%   {transform:scale(1.2)}
+    70%   {transform:scale(1)}
+    100% {transform:scale(1)}
+}
+
