@@ -11,33 +11,43 @@ body {
 
 :root { font-family: 'Inter', sans-serif; }
 @supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter var', sans-serif; }
+  :root { font-family: 'Inter', sans-serif; }
 }
 
 
 nav {
-    display: absolute;
-    top: -100px; 
-    left: -100px; 
-    background-image: url('images/heart.png');
-    background-position: top center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
     position: fixed;
-    animation: 2s pulse 2s ease-in-out infinite; 
     display: flex;
     align-items: center; 
-    /* border: 2px solid black; */
     transition: all .5s;
+}
+
+.navHeart {
+    position: absolute;
+    width: 100px;
+    top: -80px;
+    left: -40px;
+    animation: 1s pulse 1s ease-in-out infinite; 
+}
+
+.navHeart:hover {
+    cursor: pointer;
+}
+
+.heartClickOn {
+    animation: 1s heartDisappear 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
+}
+
+.heartClickOff {
+    animation: 1s heartAppear 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
 }
 
 .openNav {
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 40vw;
     border-radius: 0;
     animation: 4s pulse 4s ease-in-out infinite; 
     
@@ -46,16 +56,6 @@ nav {
     /* border: 1px solid black; */
 }
 
-
-/* nav:hover {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    border-radius: 0;
-    animation: none;
-    border: 1px solid black;
-}
- */
 
 nav ul {
     visibility: hidden;
@@ -67,15 +67,6 @@ nav ul {
     border: 2px solid blue;
     /* transition: visibility 2s ease; */
 }
-
-nav:hover ul {
-    /* visibility: visible; */
-    /* position: relative; */
-    /* top: -70px; */
-} 
-
-
-
 
 nav ul li {
     top: -40px;
@@ -104,17 +95,69 @@ nav ul li {
 
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+.greet {
+    width: 40vw;
+    height: 30vh;
+    background-color: rgba(50, 50 ,50, .8);
+    border-radius: 20px;
+    filter: drop-shadow(6px 6px 6px #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    transition: 2s all;
+
+}
+
+
+.disappear {
+    animation: 1s dis 1s ease-in-out;  
+    animation-fill-mode: forwards;
+    
+}
+
 
 @keyframes pulse {
     0%   {transform:scale(1)}
     44%   {transform:scale(1)}
     45%   {transform:scale(1.2)}
-    /* 45%  {background-color: #fff; left:0px; top:0px;} */
     50%  {transform:scale(1)}
-    /* 75%  {background-color:#fff; left:-50px; top:10px;} */
-    
-    65%   {transform:scale(1.2)}
+    64%   {transform:scale(1)}
+    65%   {transform:scale(1.1)}
     70%   {transform:scale(1)}
     100% {transform:scale(1)}
 }
+
+@keyframes heartDisappear {
+    0%   {opacity: 1; transform: scale(1)}
+    100%   {opacity: 0.11; transform: scale(4); 
+        top: 40px;
+    left: 0px;
+}
+}
+   
+@keyframes heartAppear {
+    0%   {opacity: 0.11; transform: scale(4)}
+    100%   {
+                opacity: 1; transform: scale(1); 
+                top: -80px;
+                left: -40px;
+            }
+
+}
+
+@keyframes dis {
+    0% {opacity: 1}
+    100% {opacity: 0; display: none}
+}
+
 

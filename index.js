@@ -1,21 +1,26 @@
 console.log('here')
 
-const nav = document.querySelector('nav')
+const heart = document.querySelector('.navHeart')
+const greet = document.querySelector('.greet')
 let checked = false
 
 function clicked() {
     
     if (!checked) {
         checked = true
-        nav.classList.add('openNav')
+        heart.classList.remove('heartClickOff')
+        heart.classList.add('heartClickOn')
+        greet.classList.add('disappear')
         console.log(checked)
         console.log('nav checked, should be open')
     } else {
         checked = false
-        nav.classList.remove('openNav')
+        heart.classList.remove('heartClickOn')
+        heart.classList.add('heartClickOff')
+        greet.classList.remove('disappear')
         console.log(checked)
         console.log('nav closed, should be false')
     }
 }
 
-nav.addEventListener('click', clicked)
+heart.addEventListener('click', clicked)
