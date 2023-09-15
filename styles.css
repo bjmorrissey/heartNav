@@ -4,23 +4,22 @@
 }
 
 body {
-    background-color: red;
+    background-color: rgb(164, 2, 2);
     color: #ffffff;
+    display: flex;
+    justify-content: center;
     
 }
 
-:root { font-family: 'Inter', sans-serif; }
+:root { font-family: 'Poppins', sans-serif; }
 @supports (font-variation-settings: normal) {
-  :root { font-family: 'Inter', sans-serif; }
+  :root { font-family: 'Poppins', sans-serif; }
 }
 
 
 nav {
     position: fixed;
     display: flex;
-    justify-content: right;
-    align-items: center; 
-    transition: all .5s;
     width: 100vw;    
 }
 
@@ -37,29 +36,66 @@ nav {
     cursor: pointer;
 }
 
+
+
 ul.navigation  {
+    position: fixed;
+    top: 14px;
+    right: 100vw;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     align-items: center; 
-    width: 70vw;
+    width: 60vw;
     list-style: none;
-    padding-top: 4px;
+    padding: 4px 0 0;
+    /* transition: 4s; */
+    /* background-color:rgba(50, 50 ,50, .8); */
+    /* border-radius: 4px; */
+    
+}
+
+.brian {
+    position: fixed;
+    top: 14px;
+    font-size: 2rem;
+    left: 1rem;
+    opacity: 0;
+}
+
+.appear {
+    animation: 1s appear 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+.navBarAnimate {
+    animation: 1s nbarAnimate 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
+    
+}
+
+.navBarRemove {
+    animation: 1s nbarReverse 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
     
 }
 
 ul.navigation li {
     padding: 10px;
-    transition: 1s;
-   
+    border-bottom: 0px solid white;
+    transition: .2s;
+    margin: 2px;
 }
 
 ul.navigation li:nth-last-child() {
-    margin-right: 10px;
+    margin-right: 150px;
 }
 
 ul.navigation li:hover {
+    padding: 10px 10px 9px;
     cursor: pointer;
-    border: 1px solid white;
+    border-bottom-width: 1px;
 
 }
 
@@ -88,8 +124,6 @@ ul.navigation li:hover {
   
 }
 
-
-
 .deadspace {
     height: 100px;
     width: 20px;
@@ -115,7 +149,7 @@ main {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100vw;
+    width: 80vw;
 }
 
 .greet {
@@ -128,13 +162,13 @@ main {
     justify-content: center;
     align-items: center;
     font-size: 3rem;
-    transition: 2s all;
+    transition: .5s all;
 
 }
 
 
 .disappear {
-    animation: 1s dis .25s ease-in-out;  
+    animation: 1s dis ease-in-out;  
     animation-fill-mode: forwards;
 }
 
@@ -152,7 +186,7 @@ main {
 
 @keyframes heartDisappear {
     0%   {opacity: 1; transform: scale(1)}
-    100%   {opacity: 0.11; transform: scale(4); 
+    100%   {opacity: 0.05; transform: scale(4); 
         top: 40px;
     left: 0px;
 }
@@ -168,7 +202,42 @@ main {
 
 }
 
+@keyframes appear {
+    0% {opacity: 0; display: none}
+    100% {opacity: 1; display: inline-block; }
+}
 @keyframes dis {
     0% {opacity: 1}
     100% {opacity: 0; display: none}
+}
+
+@keyframes nbarAnimate {
+    0% { top: 14px;
+        right: 100vw;
+        opacity: 0;}
+
+        50% {
+            opacity: 0;
+        }
+        100% {
+            top: 14px;
+        right: 1vw;
+        opacity: 1;
+        }
+}
+
+@keyframes nbarReverse {
+    0% { top: 14px;
+        right: 1vw;
+        opacity: 1;}
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            top: 14px;
+        right: 100vw;
+        opacity: 0;
+        }
 }
