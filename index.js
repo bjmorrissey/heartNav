@@ -4,6 +4,8 @@ const heart = document.querySelector('.navHeart')
 const greet = document.querySelector('.greet')
 const navigation = document.querySelector('.navigation')
 const brian = document.querySelector('.brian')
+const insQuote = document.querySelector('.inspireQuote')
+const authorLine = document.querySelector('.author')
 let checked = false
 
 function clicked() {
@@ -28,6 +30,11 @@ function clicked() {
         greet.classList.remove('disappear')
         brian.classList.remove('appear')
         brian.classList.add('disappear')
+
+
+        setTimeout(() => {
+            heart.classList.remove('heartClickOff')
+        },1000)
         
         console.log(checked)
         console.log('nav closed, should be false')
@@ -35,3 +42,28 @@ function clicked() {
 }
 
 heart.addEventListener('click', clicked)
+
+
+const inspirationQuote = "https://zenquotes.io/api/quotes"
+let quote = ''
+let author = ''
+
+async function inspire(url) {
+
+    let num = Math.floor((Math.random() * 100))
+
+    console.log(num)
+
+    const response = await fetch(url)
+    var data = await response.json()
+    const choice = data[num]
+    console.log(choice)
+
+    quote = choice.q
+    author = choice.a
+
+    insQuote.innerText = quote;
+    authorLine.innerText = `- ${author}`;
+}
+
+inspire(inspirationQuote)
