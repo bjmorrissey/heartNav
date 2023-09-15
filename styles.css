@@ -18,12 +18,15 @@ body {
 nav {
     position: fixed;
     display: flex;
+    justify-content: right;
     align-items: center; 
     transition: all .5s;
+    width: 100vw;    
 }
 
 .navHeart {
     position: absolute;
+    z-index: -1;
     width: 100px;
     top: -80px;
     left: -40px;
@@ -33,6 +36,38 @@ nav {
 .navHeart:hover {
     cursor: pointer;
 }
+
+ul.navigation  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 70vw;
+    list-style: none;
+    padding-top: 4px;
+    
+}
+
+ul.navigation li {
+    padding: 10px;
+    transition: 1s;
+   
+}
+
+ul.navigation li:nth-last-child() {
+    margin-right: 10px;
+}
+
+ul.navigation li:hover {
+    cursor: pointer;
+    border: 1px solid white;
+
+}
+
+
+
+.svg-shape {
+    -webkit-shape-inside: polygon(75.778px 272.829px, 1.555px 144.271px, 75.778px 15.713px, 224.222px 15.713px, 298.444px 144.271px, 224.222px 272.829px);
+  } 
 
 .heartClickOn {
     animation: 1s heartDisappear 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
@@ -50,30 +85,10 @@ nav {
     width: 40vw;
     border-radius: 0;
     animation: 4s pulse 4s ease-in-out infinite; 
-    
-    /* background-image: none; */
-    /* animation: none; */
-    /* border: 1px solid black; */
+  
 }
 
 
-nav ul {
-    visibility: hidden;
-    display: flex;
-    width: 100%; 
-    justify-content: space-around ;
-    list-style: none;
-    align-items: center;
-    border: 2px solid blue;
-    /* transition: visibility 2s ease; */
-}
-
-nav ul li {
-    top: -40px;
-    padding: 20px;
-    font-size: 30px;
-
-}
 
 .deadspace {
     height: 100px;
@@ -101,7 +116,6 @@ main {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    
 }
 
 .greet {
@@ -120,9 +134,8 @@ main {
 
 
 .disappear {
-    animation: 1s dis 1s ease-in-out;  
+    animation: 1s dis .25s ease-in-out;  
     animation-fill-mode: forwards;
-    
 }
 
 
@@ -159,5 +172,3 @@ main {
     0% {opacity: 1}
     100% {opacity: 0; display: none}
 }
-
-
