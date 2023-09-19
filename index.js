@@ -44,26 +44,26 @@ function clicked() {
 heart.addEventListener('click', clicked)
 
 
-const inspirationQuote = "https://zenquotes.io/api/quotes"
-let quote = ''
-let author = ''
+// const inspirationQuote = "https://zenquotes.io/api/quotes"
+// let quote = ''
+// let author = ''
 
-async function inspire(url) {
+// async function inspire(url) {
 
-    let num = Math.floor((Math.random() * 100))
+//     let num = Math.floor((Math.random() * 100))
 
-    console.log(num)
+//     console.log(num)
 
-    const response = await fetch(url)
-    var data = await response.json()
-    const choice = data[num]
-    console.log(choice)
+//     const response = await fetch(url)
+//     var data = await response.json()
+//     const choice = data[num]
+//     console.log(choice)
 
-    quote = choice.q
-    author = choice.a
+//     quote = choice.q
+//     author = choice.a
 
-    insQuote.innerText = quote;
-    authorLine.innerText = `- ${author}`;
-}
+//     insQuote.innerText = quote;
+//     authorLine.innerText = `- ${author}`;
+// }
 
-inspire(inspirationQuote)
+// inspire(inspirationQuote)
