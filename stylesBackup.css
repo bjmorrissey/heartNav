@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(21, 1, 1);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    
+}
+
+:root { font-family: 'Poppins', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Poppins', sans-serif; }
+}
+
+
+nav {
+    position: fixed;
+    display: flex;
+    width: 100vw;   
+    background-color:  rgb(164, 2, 2); 
+}
+
+.navHeart {
+    position: absolute;
+    z-index: -2;
+    width: 150px;
+    top: -80px;
+    left: -40px;
+    animation: 1s pulse 1s ease-in-out infinite; 
+}
+
+.navHeart:hover {
+    cursor: pointer;
+}
+
+.mainSection {
+    width: 80vw;
+    height: 80vh;
+    background-color: #222;
+    border-radius: 10px;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+.grid-section {
+    background-color: blue;
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: center
+}
+
+
+
+
+ul.navigation  {
+    position: fixed;
+    top: 14px;
+    right: 100vw;
+    display: flex;
+    justify-content:space-around;
+    align-items: center; 
+    width: 60vw;
+    list-style: none;
+    padding: 4px 0 0;
+}
+
+.brian {
+    position: fixed;
+    top: 14px;
+    font-size: 2rem;
+    left: 1rem;
+    opacity: 0;
+    z-index: -1;
+}
+
+.appear {
+    animation: 1s appear 1s;
+    animation-fill-mode: forwards;
+}
+
+
+
+.navBarAnimate {
+    animation: 1s nbarAnimate 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
+    
+}
+
+.navBarRemove {
+    animation: 1s nbarReverse 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
+    
+}
+
+ul.navigation li {
+    padding: 10px;
+    border-bottom: 0px solid white;
+    transition: .2s;
+    margin: 2px;
+}
+
+ul.navigation li:nth-last-child() {
+    margin-right: 150px;
+}
+
+ul.navigation li:hover {
+    padding: 10px 10px 9px;
+    cursor: pointer;
+    border-bottom-width: 1px;
+
+}
+
+
+
+.svg-shape {
+    -webkit-shape-inside: polygon(75.778px 272.829px, 1.555px 144.271px, 75.778px 15.713px, 224.222px 15.713px, 298.444px 144.271px, 224.222px 272.829px);
+  } 
+
+.heartClickOn {
+    animation: 1s heartDisappear 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
+}
+
+.heartClickOff {
+    animation: 1s heartAppear 0s cubic-bezier(0.455, 0.03, 0.515, 0.955) ;
+    animation-fill-mode: forwards;
+}
+
+.openNav {
+    top: 0;
+    left: 0;
+    width: 40vw;
+    border-radius: 0;
+    animation: 4s pulse 4s ease-in-out infinite; 
+  
+}
+
+.deadspace {
+    height: 100px;
+    width: 20px;
+    border: 10px solid black;
+} 
+
+.whitespace {
+    height: 100px; 
+    width: 20px;
+    border: 10px solid white;
+}
+
+.float {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    animation: pulse 2s ease-in;
+
+}
+
+main {
+    position: relative;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 80vw;
+}
+
+.greet {
+    width: 40vw;
+    height: 30vh;
+    background-color: rgba(50, 50 ,50, .8);
+    border-radius: 20px;
+    filter: drop-shadow(6px 6px 6px #000);
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: .5s all;
+}
+
+.greet .inspireQuote {
+    font-style: italic;
+}
+
+.greet .author {
+    width: 100%;
+    text-align: right;
+    /* border: 2px solid red; */
+    font-size: 1rem;
+     color: rgba(255, 255, 255, 0.7)
+}
+
+
+.disappear {
+    animation: 1s dis ease-in-out;  
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes pulse {
+    0%   {transform:scale(1)}
+    44%   {transform:scale(1)}
+    45%   {transform:scale(1.2); filter: invert(.3) }
+    50%  {transform:scale(1); }
+    64%   {transform:scale(1)}
+    65%   {transform:scale(1.1)}
+    70%   {transform:scale(1)}
+    100% {transform:scale(1)}
+}
+
+@keyframes heartDisappear {
+    0%   {opacity: 1; transform: scale(1)}
+    100%   {opacity: 0.05; transform: scale(4); 
+        top: 40px;
+        left: 0px;
+}
+}
+   
+@keyframes heartAppear {
+    0%   {opacity: 0.05; transform: scale(4); top: 40px; left: 0px;}
+    100%   {
+                opacity: 1; transform: scale(1); 
+                top: -80px;
+                left: -40px;
+            }
+
+}
+
+@keyframes appear {
+    0% {opacity: 0; display: none}
+    100% {opacity: 1; display: inline-block; }
+}
+@keyframes dis {
+    0% {opacity: 1}
+    100% {opacity: 0; display: none}
+}
+
+@keyframes nbarAnimate {
+    0% { top: 14px;
+        right: 100vw;
+        opacity: 0;}
+
+        50% {
+            opacity: 0;
+        }
+        100% {
+            top: 14px;
+        right: 1vw;
+        opacity: 1;
+        }
+}
+
+@keyframes nbarReverse {
+    0% { top: 14px;
+        right: 1vw;
+        opacity: 1;}
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            top: 14px;
+        right: 100vw;
+        opacity: 0;
+        }
+}
+
+.gsapBox {
+    width: 10vw;
+    height: 10vw;
+    background-color: grey;;
+}
